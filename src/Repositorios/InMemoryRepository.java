@@ -14,7 +14,7 @@ public class InMemoryRepository<T> {
             String clase;
             entity.getClass().getMethod("setId", Long.class).invoke(entity, id);
             clase = entity.getClass().getName();
-            System.out.println(clase + "   id :" + id);
+            System.out.println("Se ha guardado la clase " + clase + " id: " + id);
         } catch (Exception e) {
             e.printStackTrace();
         }

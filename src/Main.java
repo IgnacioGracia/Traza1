@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         // Inicializar repositorios
         InMemoryRepository<Empresa> empresaRepository = new InMemoryRepository<>();
-        System.out.println(" -----------PROBAMOS EL SISTEMA ----------");
+        System.out.println("-----PROBAMOS EL SISTEMA-----");
         Pais argentina = Pais.builder().nombre("Argentina").
                 build();
 
@@ -159,17 +159,17 @@ public class Main {
         empresaRepository.save(empresa2);
 
         // Mostrar todas las empresas
-        System.out.println("Todas las empresas:");
+        System.out.println("-Todas las empresas:");
         List<Empresa> todasLasEmpresas = empresaRepository.findAll();
         todasLasEmpresas.forEach(System.out::println);
 
         // Buscar empresa por ID
         Optional<Empresa> empresaEncontrada = empresaRepository.findById(1L);
-        empresaEncontrada.ifPresent(e -> System.out.println("Empresa encontrada por ID 1: " + e));
+        empresaEncontrada.ifPresent(e -> System.out.println("-Empresa encontrada por ID 1: \n" + e));
 
         // Buscar empresa por nombre
         List<Empresa> empresasPorNombre = empresaRepository.genericFindByField("nombre", "Empresa 1");
-        System.out.println("Empresas con nombre 'Empresa 1':");
+        System.out.println("-Empresas con nombre 'Empresa 1':");
         empresasPorNombre.forEach(System.out::println);
 
         // Actualizar empresa por ID
@@ -183,7 +183,7 @@ public class Main {
 
         empresaRepository.genericUpdate(1L, empresaActualizada);
         Optional<Empresa> empresaVerificada = empresaRepository.findById(1L);
-        empresaVerificada.ifPresent(e -> System.out.println("Empresa después de la actualización: " + e));
+        empresaVerificada.ifPresent(e -> System.out.println("-Empresa después de la actualización: \n" + e));
 
         // Eliminar empresa por ID
         empresaRepository.genericDelete(1L);
@@ -193,10 +193,10 @@ public class Main {
         }
 
         // Mostrar todas las empresas restantes
-        System.out.println("Todas las empresas después de la eliminación:");
+        System.out.println("-Todas las empresas después de la eliminación:");
         List<Empresa> empresasRestantes = empresaRepository.findAll();
         empresasRestantes.forEach(System.out::println);
-        System.out.println("--------------Mostrar las sucursales de una empresa determinada");
+        System.out.println("-----Mostrar las sucursales de una empresa determinada-----");
         // Mostrar las sucursales de una empresa determinada
         Optional<Empresa> empresa = empresaRepository.findById(2L);
         if (empresa.isPresent()) {
