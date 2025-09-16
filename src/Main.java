@@ -137,7 +137,7 @@ public class Main {
         Empresa empresa1 = Empresa.builder()
                 .nombre("Empresa 1")
                 .razonSocial("Razon Social 1")
-                .cuit(1234567890)
+                .cuit(1234567790)
                 .sucursales(new HashSet<>(Set.of(sucursal1, sucursal2)))
                 .build();
 
